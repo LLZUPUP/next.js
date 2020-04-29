@@ -15,21 +15,21 @@ export default class Test {
       demo: 1111,
       data: [
         {
-          key: '1',
+          key: 1,
           name: 'John Brown',
           age: 32,
           address: 'New York No. 1 Lake Park',
           tags: ['nice', 'developer']
         },
         {
-          key: '2',
+          key: 2,
           name: 'Jim Green',
           age: 42,
           address: 'London No. 1 Lake Park',
           tags: ['loser']
         },
         {
-          key: '3',
+          key: 3,
           name: 'Joe Black',
           age: 32,
           address: 'Sidney No. 1 Lake Park',
@@ -61,9 +61,9 @@ export default class Test {
       this.data = [
         ...this.data,
         {
-          key: '3',
-          name: 'Joe Black',
-          age: 32,
+          key: this.data[this.data.length-1].key+1,
+          name: 'Joe Black'+(this.data[this.data.length-1].key+1),
+          age: 32+(this.data[this.data.length-1].key+1),
           address: 'Sidney No. 1 Lake Park',
           tags: ['cool', 'teacher']
         }
@@ -72,6 +72,24 @@ export default class Test {
       console.error(error);
     } finally {
       console.log('end');
+      this.loading.update = false;
+    }
+  };
+
+  @action
+  delete = async (key) => {
+    try {
+      this.loading.update = true;
+      // await delay(1);
+      this.data = [
+        ...this.data.filter((item)=> {
+          return item.key!==key
+        }),
+
+      ];
+    } catch (error) {
+      console.error(error);
+    } finally {
       this.loading.update = false;
     }
   };

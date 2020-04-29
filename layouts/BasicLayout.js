@@ -52,10 +52,9 @@ class Page extends PureComponent {
             <div className="header__logo">
               <img
                 className="header__logo-img"
-                src="https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4016333918,4269266815&fm=26&gp=0.jpg"
-                alt="logo"
+                src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2102812862,697864703&fm=26&gp=0.jpg"
               />
-              <div className="header__logo-name">my home</div>
+              <div className="header__logo-name">LLzzzzzz</div>
             </div>
           </Col>
           <Col span={12}>{this.renderMenus()}</Col>
@@ -65,7 +64,7 @@ class Page extends PureComponent {
   };
 
   renderFooter() {
-    return <Footer className="footer">footer</Footer>;
+    return <Footer className="footer">这是底部footer</Footer>;
   }
 
   render() {
@@ -75,7 +74,7 @@ class Page extends PureComponent {
       <Layout className="base-layout">
         <MediaQuery />
         <Head>
-          <title>沐雨橙风</title>
+          <title>llzzzz</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -83,8 +82,11 @@ class Page extends PureComponent {
         </Head>
         {this.renderHeader()}
         <Content className="content">
-          <div>{screen}</div>
-          <div style={{ paddingTop: 24, minHeight: 680 }}>{children}</div>
+          {/*<div>{screen}</div>*/}
+          <div style={{ padding: 24, minHeight: 620 }}>
+            <div style={{marginBottom: 20}}>My name: Zhaolele</div>
+            {children}
+            </div>
         </Content>
         {this.renderFooter()}
       </Layout>

@@ -16,6 +16,11 @@ export default class {
         update: false,
       }, // 存储当前模块所有异步操作的loading状态，约定key值为方法名
       demo: 1111,
+      blog: {
+        title: 'When to Use Static Generation v.s. Server-side Rendering',
+        id: 'ssg-ssr',
+        date: '2020-01-02',
+      }
     };
 
     if (init) {
@@ -33,6 +38,6 @@ export default class {
 
   @action
   changeDemo = () => {
-    this.demo = this.demo + 1;
+    this.demo = this.demo + 22;
   };
 }

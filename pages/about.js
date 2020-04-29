@@ -27,18 +27,11 @@ export default class Counter extends React.Component {
   };
 
   render() {
-    const { demo, changeDemo,blog } = this.store;
+    // const { demo, changeDemo,blog } = this.store;
     return (
       <BasicLayout>
         <Card>
-          <p>{blog.title}</p>
-          <p>{blog.id}</p>
-          <p>{blog.date}</p>
-          <div className="demo">{demo}</div>
-
-          <TweenOne>
-            <Button onClick={changeDemo}> change</Button>
-          </TweenOne>
+         <p>about</p>
         </Card>
 
       </BasicLayout>

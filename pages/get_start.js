@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-import { Button } from 'antd';
+import {Button, Card} from 'antd';
 import BasicLayout from '../layouts/BasicLayout';
 import { delay } from '../utils/helper';
 
@@ -17,7 +17,7 @@ class Get_startPage extends React.Component {
   }
 
   static getInitialProps = async ctx => {
-    // console.log(ctx);
+    console.log(ctx);
     ctx.pageModelNames = ['appGlobalModel', 'modelGet_start'];
     // await delay(1);
     return {
@@ -30,7 +30,11 @@ class Get_startPage extends React.Component {
     const {} = this.store;
     return (
       <div className="page-get_start">
-        <BasicLayout>Get_startPage</BasicLayout>
+        <BasicLayout>
+          <Card>
+            我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面我是新手入门页面
+          </Card>
+        </BasicLayout>
       </div>
     );
   }

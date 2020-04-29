@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
-import { Card, Table, Tag, Button, Row, PageHeader } from 'antd';
+import React, {Component} from 'react';
+import {observer, inject} from 'mobx-react';
+import {Card, Table, Tag, Button, Row, PageHeader} from 'antd';
 import './test.less';
+import BasicLayout from "../layouts/BasicLayout";
 
 @inject('appGlobalModel')
 @inject('modelTest')
@@ -53,8 +54,8 @@ class TestPage extends Component {
         key: 'action',
         render: (text, record) => (
           <span>
-            <a style={{ marginRight: 16 }}>Invite {record.name}</a>
-            <a>Delete</a>
+            <a style={{marginRight: 16}}>Invite {record.name}</a>
+            <a onClick={this.delete.bind(this,record.key)}>Delete</a>
           </span>
         )
       }
@@ -66,69 +67,77 @@ class TestPage extends Component {
     console.log(this.store.data.length);
   };
 
+  delete = async (key) => {
+    await this.store.delete(key);
+  };
+
   render() {
     const {
-      store: { data, commit, demo, loading },
+      store: {data, commit, demo, loading},
       columns
     } = this;
+    console.log(data)
 
     const routes = [
       {
         path: 'index',
-        breadcrumbName: 'First-level Menu'
+        breadcrumbName: '第一级 Menu'
       },
       {
         path: 'first',
-        breadcrumbName: 'Second-level Menu'
+        breadcrumbName: '第二级 Menu'
       },
       {
         path: 'second',
-        breadcrumbName: 'Third-level Menu'
+        breadcrumbName: '第三级 Menu'
       }
     ];
 
     return (
       <div className="page-test">
-        <PageHeader
-          ghost={false}
-          title="Title"
-          breadcrumb={{ routes }}
-          subTitle="This is a subtitle"
-        />
+        <BasicLayout>
+          <PageHeader
+            ghost={false}
+            title="Title"
+            breadcrumb={{routes}}
+            subTitle="This is a subtitle"
+          />
 
-        <div className="content-card__wrapper">
-          <Card>
-            <Row
-              style={{
-                marginBottom: 16
-              }}
-            >
-              <Button
-                type="primary"
-                onClick={this.test}
-                loading={loading.update}
-              >
-                请求数据
-              </Button>
-              <Button
-                type="primary"
-                onClick={() => {
-                  commit({
-                    demo: demo + 1234566
-                  });
+          <div className="content-card__wrapper">
+            <Card>
+              <Row
+                style={{
+                  marginBottom: 16
                 }}
-                loading={loading.update}
               >
-                {demo}
-              </Button>
-            </Row>
+                <Button
+                  type="primary"
+                  onClick={this.test}
+                  loading={loading.update}
+                >
+                  请求数据
+                </Button>
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    commit({
+                      demo: demo + 123
+                    });
+                  }}
+                  loading={loading.update}
+                >
+                  {demo}
+                </Button>
+              </Row>
 
-            <Table columns={columns} dataSource={data} />
-          </Card>
-        </div>
+              <Table columns={columns} dataSource={data}/>
+            </Card>
+          </div>
+        </BasicLayout>
       </div>
     );
   }
 }
+
 
 export default TestPage;

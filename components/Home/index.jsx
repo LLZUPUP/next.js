@@ -38,6 +38,7 @@ export default class Home extends React.Component {
     };
   }
 
+
   componentDidMount() {
     location = window.location;
     // 适配手机屏幕;
